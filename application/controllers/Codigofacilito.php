@@ -7,8 +7,8 @@ class Codigofacilito extends CI_Controller {
 		$this->load->helpers('mihelper');
 	}
 	function Index(){
-		$this->load->library('menu',array('Inicio','Contacto','Curso'));
-		$data['mi_menu'] = $this->Menu->construirMenu();
+		$this->load->library('menu');
+		$data['mi_menu'] = $this->menu->construirMenu(array('Inicio','Contacto','Curso'));
 		$this->load->view('codigofacilito/headers');
 		$this->load->view('codigofacilito/bienvenido',$data);
 	}
