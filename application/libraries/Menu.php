@@ -1,19 +1,33 @@
-<? if( ! defined('BASEPATH')) exit('No se permite acceso directorio script');
-	
-	/* Clase para realizar menus	  */
-	
-	 } class Menu{
-		 private $arr_menu;
-		 public function __construct($arr){
-		 	$this->arr_menu = $arr;
-		 }	
-		 public function construirMenu(){
-		 	$ret_menu = "<nav><ul>";
-		 	foreach ($this->arr_menu as $opcion){
-		 		$ret_menu .= "<li>".$opcion."</li>";
-		 	}
-		 	$ret_menu .= "</ul></nav>";
-		 	return $ret_menu;
-		 }
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Menu
+{
+	/**
+	 * @var array
+	 */
+	private $arguments;
+	/**
+	 * Menu constructor.
+	 * @param array $arguments
+	 */
+	public function __construct($arguments = array())
+	{
+		$this->arguments = $arguments;
 	}
-?>
+	/**
+	 * Generate the  menu structure
+	 * @return string
+	 */
+	public function construirMenu()
+	{
+		$html = "<nav><ul>";
+		foreach ($this->arr_menu as $opcion) {
+			$html .= "<li>" . $opcion . "</li>";
+		}
+		$html .= "</ul></nav>";
+		return $html;
+	}
+
+}
+
